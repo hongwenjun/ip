@@ -10,7 +10,8 @@
 ```
 git clone https://github.com/hongwenjun/ip.git
 pip3  install Flask  ipip-ipdb
-cd ip && wget https://cdn.jsdelivr.net/npm/qqwry.ipdb/qqwry.ipdb
+cd ip
+wget https://cdn.jsdelivr.net/npm/qqwry.ipdb/qqwry.ipdb
 flask run --host=0.0.0.0
 ```
 
