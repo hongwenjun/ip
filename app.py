@@ -48,5 +48,8 @@ def show_ip(ipaddr=None):
 
     return ipaddr
 
+if __name__ == '__main__':
+	app.run(host='0.0.0.0')
+
 # export FLASK_ENV=development   # 调试模式: 修改代码不用重启服务
 # flask run --host=0.0.0.0       # 监听所有公开的 IP
