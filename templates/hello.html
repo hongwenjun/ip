@@ -1,0 +1,46 @@
+<!DOCTYPE html><head><meta charset="utf-8">
+<title>Hello,亲: 本WebAPI支持IP城市定位和域名查IP定位</title>
+</head>
+<html><body style="text-align:center;">
+{% if ip %}
+<h1>Hello, 来自{{ ip }} 的亲:</h1>
+<h3>{{ ipaddr }}</h3> <br><br><br>
+
+<div><input id="name" type="text">
+<input type="button" id="btn" value="提交"></div>
+
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    function enter() {
+        var event = arguments.callee.caller.arguments[0] || window.event;
+        if (event.keyCode == 13) {
+            jump_url()
+        }
+    }
+    $("#btn").click(function () {
+        jump_url()
+    })
+    function jump_url(params) {
+        var name = $("#name").val();
+        const url = window.location.href;
+        window.location.href = url + name
+    }
+</script>
+<br><br><br><br><br><br>
+
+本WebAPI支持IP城市定位和域名查IP定位，同时支持命令行查询
+<h3>搭建WebAPI参考文章</h3>
+<a href="https://262235.xyz/index.php/archives/342/">Python网络开发简单的IP城市定位WebAPI</a>
+<p>
+
+<h3>命令行 curl 使用:</h3>
+<pre>
+curl https://262235.xyz/ip/            # 命令行 URL 要带 /
+
+curl https://262235.xyz/ip/8.8.8.8    # 查询自定义 IP 定位
+
+curl https://262235.xyz/ip/github.com   # 按域名查 IP 定位
+
+{% else %}
+  <h1>Hello World!</h1>
+{%  endif  %}
