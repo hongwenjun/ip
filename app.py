@@ -9,21 +9,29 @@ def iplocated(ip):
     city = db.find(ip, "CN")
     return ip + " @" + city[0] + city[1] + city[2] + city[3] + "\n"
 
+def getip():
+    ip = request.remote_addr
+    try:
+        _ip = request.headers["X-Real-IP"]
+        if _ip is not None:
+            ip = _ip
+    except Exception as e:
+        print(e)
+    return ip
+
+@app.route("/")
+def hello():
+    ip = getip()
+    return ip
+    
 @app.route("/ip/")
 @app.route("/ip/<ipaddr>")
 def show_ip(ipaddr=None):
     # ip 地址为空获得浏览器客户端IP
     if ipaddr is None:
-        ip = request.remote_addr
-        try:
-            _ip = request.headers["X-Real-IP"]
-            if _ip is not None:
-                ip = _ip
-        except Exception as e:
-            print(e)
+        ip = getip()
         ipaddr = iplocated(ip)
         return  render_template('hello.html',  ip=ip, ipaddr=ipaddr)
-
     else:
         ip = ipaddr
 
