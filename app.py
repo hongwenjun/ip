@@ -19,11 +19,23 @@ def getip():
         print(e)
     return ip
 
+def is_Mozilla():
+    # Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36
+    ua = request.headers["User-Agent"]
+    if (ua.find("Mozilla") != -1):
+        return True
+    else:
+        return False
+
 @app.route("/")
 def hello():
     ip = getip()
-    return ip
-    
+    if is_Mozilla():
+        return ip + render_template('hello.html') + "\n\n" + request.headers["User-Agent"]
+    else:
+        return ip
+
+@app.route("/ip")
 @app.route("/ip/")
 @app.route("/ip/<ipaddr>")
 def show_ip(ipaddr=None):
@@ -31,7 +43,10 @@ def show_ip(ipaddr=None):
     if ipaddr is None:
         ip = getip()
         ipaddr = iplocated(ip)
-        return  render_template('hello.html',  ip=ip, ipaddr=ipaddr)
+        if is_Mozilla():
+            return  render_template('hello.html',  ip=ip, ipaddr=ipaddr)
+        else:
+            return ip
     else:
         ip = ipaddr
 
@@ -49,7 +64,7 @@ def show_ip(ipaddr=None):
     return ipaddr
 
 if __name__ == '__main__':
-	app.run(host='0.0.0.0')
+	app.run(host='0.0.0.0', debug=True)
 
 # export FLASK_ENV=development   # 调试模式: 修改代码不用重启服务
 # flask run --host=0.0.0.0       # 监听所有公开的 IP
