@@ -4,9 +4,6 @@ RUN  apt update -y \
   && apt install --no-install-recommends --no-install-suggests -y tmux  \
   && apt-get clean  \
   && apt-get autoremove  \
-  && python3 -m pip install --upgrade pip  \
-  && pip3 install setuptools  \
-  && pip3 install --upgrade  pip  requests  \
   && rm -rf /var/lib/apt/lists/*
 
 RUN  mkdir /app/templates -p  && cd /app \
@@ -30,3 +27,7 @@ CMD ["python3", "-m", "app"]
 # docker run -d -p 80:5000 --restart=always --name ip hongwenjun/ip
 
 ###################################################################
+
+# github源码：https://github.com/hongwenjun/ip
+
+# docker镜像：https://hub.docker.com/r/hongwenjun/ip
