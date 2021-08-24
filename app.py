@@ -31,11 +31,14 @@ def is_Mozilla():
     else:
         return False
 
+## 百度免费的 IP 普通定位 API 接口 
 def ip2bdgps(ip):
-    url = 'https://api.map.baidu.com/location/ip?ak=iUGOVyqGFo4QOP6QhTuZPF1P6FV5GB7p&coor=bd09ll&ip=' + ip
-    r = requests.get(url)
-    json_str = r.text
-    data = json.loads(json_str)
+    url = 'https://api.map.baidu.com/location/ip?ak=>>>百度AK码<<<&coor=bd09ll&ip=' + ip
+    try:
+        r = requests.get(url)
+        data = r.json()
+    except :
+        return
 
     if data['status'] != 0 :
         return  (116.39564504, 39.92998578 , data['status'])    # 查不到返回 北京 x,y
@@ -43,6 +46,26 @@ def ip2bdgps(ip):
         x = data['content']['point']['x']
         y = data['content']['point']['y']
     return  (x, y, data['status'], data)
+
+## 免费的高德 IP定位 API 接口 
+def ip2gdgps(ip):
+    url = 'http://iploc.market.alicloudapi.com/v3/ip?ip=' + ip
+    headers = {"Authorization":"APPCODE <<<IP定位APPCODE>>>" ,"Content-Type":"application/json; charset=utf-8" }
+    try:
+        r = requests.get(url=url , headers=headers)
+        data = r.json()
+    except :
+        return
+    # print(data)
+    if data['status'] != '1':
+        return  (116.39564504, 39.92998578 , data['status'])    # 查不到返回 北京 x,y
+    elif data['rectangle']:
+        rectangle = data['rectangle']   # '119.5281601,28.9855063;119.7682178,29.16913797'
+        arry = rectangle.replace(';', ',').split(',')
+        x = (float(arry[0]) +  float(arry[2])) / 2.0
+        y = (float(arry[1]) +  float(arry[3])) / 2.0
+        return  (x, y, data['status'], data)
+    return  (116.39564504, 39.92998578 , data['status'])    # 查不到返回 北京 x,y
 
 @app.route("/")
 def hello():
@@ -55,7 +78,14 @@ def hello():
 @app.route("/ip/maps/")
 def maps():
     ip = getip()
-    bdgps = ip2bdgps(ip)
+    # bdgps = ip2bdgps(ip)   #  百度地图 IP 定位 API 比较慢 ，换用 免费 高德定位
+    bdgps = ip2gdgps(ip)
+    return  render_template('maps.html',  bdgps=bdgps)
+
+@app.route("/ip/bdmaps/")
+def bdmaps():
+    ip = getip()
+    bdgps = ip2bdgps(ip)   #  百度地图 IP 定位 API 比较慢
     return  render_template('maps.html',  bdgps=bdgps)
 
 @app.route("/ip/")
@@ -93,5 +123,3 @@ if __name__ == '__main__':
 
 # export FLASK_ENV=development   # 调试模式: 修改代码不用重启服务
 # flask run --host=0.0.0.0       # 监听所有公开的 IP
-
-
