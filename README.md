@@ -4,7 +4,7 @@
 
 ### 本WebAPI支持IP城市定位和域名查IP定位，同时支持命令行查询
 
-![](https://262235.xyz/usr/uploads/2021/08/3947416904.png)
+![](https://262235.xyz/usr/uploads/2021/08/650223153.webp)
 
 ## 安装部署简易命令
 ```
@@ -24,3 +24,7 @@ docker run -d -p 80:5000 --restart=always --name ip hongwenjun/ip
 ### 搭建WebAPI参考文章
 [Python网络开发简单的IP城市定位WebAPI](https://262235.xyz/index.php/archives/342/)
 
+
+[Pytyhon 使用百度地图API 进行 IP普通定位和地图显示](https://www.262235.xyz/index.php/archives/375/)
+
+演示网址: https://www.262235.xyz/ip/maps/
