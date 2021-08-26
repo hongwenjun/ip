@@ -47,25 +47,22 @@ def ip2bdgps(ip):
         y = data['content']['point']['y']
     return  (x, y, data['status'], data)
 
-## 免费的高德 IP定位 API 接口 
+## 免费试用500次,  1元能使用1万次 IP定位 API 接口   https://market.aliyun.com/products/57002002/cmapi00035184.html
 def ip2gdgps(ip):
-    url = 'http://iploc.market.alicloudapi.com/v3/ip?ip=' + ip
-    headers = {"Authorization":"APPCODE <<<IP定位APPCODE>>>" ,"Content-Type":"application/json; charset=utf-8" }
+    url = 'http://ips.market.alicloudapi.com/iplocaltion?ip=' + ip
+    headers = {"Authorization":"APPCODE  <<<IP定位APPCODE>>>" ,"Content-Type":"application/json; charset=utf-8" }
     try:
         r = requests.get(url=url , headers=headers)
         data = r.json()
     except :
         return
     # print(data)
-    if data['status'] != '1':
-        return  (116.39564504, 39.92998578 , data['status'])    # 查不到返回 北京 x,y
-    elif data['rectangle']:
-        rectangle = data['rectangle']   # '119.5281601,28.9855063;119.7682178,29.16913797'
-        arry = rectangle.replace(';', ',').split(',')
-        x = (float(arry[0]) +  float(arry[2])) / 2.0
-        y = (float(arry[1]) +  float(arry[3])) / 2.0
-        return  (x, y, data['status'], data)
-    return  (116.39564504, 39.92998578 , data['status'])    # 查不到返回 北京 x,y
+    if data['code'] != 100:
+        return  (116.39564504, 39.92998578 , data['code'])    # 查不到返回 北京 x,y
+    elif data['message'] == "success":
+        x = data['result']['lng']
+        y = data['result']['lat']
+        return  (x, y, data['code'], data)
 
 @app.route("/")
 def hello():
