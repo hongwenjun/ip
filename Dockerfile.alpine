@@ -1,5 +1,5 @@
 FROM python:3.6.14-alpine3.14
-RUN  pip3 install Flask  ipip-ipdb
+RUN  pip3 install requests Flask  ipip-ipdb
 ADD  ./app  /app
 WORKDIR /app
 EXPOSE 5000/tcp
