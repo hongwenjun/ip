@@ -14,12 +14,13 @@ for ip in iplist:
 
 # 统计日志中IP排名写到iplist.txt，批量查IP地址信息，最新日志100条
 """
-docker logs ip 2>/dev/null \
+docker logs nginx-php 2>/dev/null \
   | grep -oE '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' \
   | sort | uniq -c| sort -nrk 1 | head -n 100 | tee iplist.txt
 
-docker exec -it ip python3 ipinfo.py
+docker exec -it python3 python3 ipinfo.py
 
-docker logs ip 2>/dev/null | tail -100 
-
+docker logs nginx-php 2>/dev/null | tail -100  \
+  | grep -oE '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' \
+  | sort | uniq -c| sort -nrk 1 | head -n 100 | tee iplist.txt
 """
