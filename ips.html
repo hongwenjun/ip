@@ -1,0 +1,17 @@
+<!DOCTYPE html><html><body>
+<form action="/ips/" method="post">
+<fieldset>
+{% if ips %}
+<legend>批量ip查询地址: <a href="/ips/">点击返回</a> </legend>   
+<textarea type="text" name ="ips" cols=120 rows=100>
+{{ ips }}</textarea>
+{% else %}
+  <legend>批量ip查询地址:</legend>   
+  <textarea type="text" name ="ips" cols=120 rows=20 placeholder="输入多行包含ip地址的日志,例:
+  http://192.168.1.189:5000/ips/
+  172.67.158.52  cloudflare.com"></textarea>
+  <br>
+  <input type="submit" value="点击查询">
+{%  endif  %}
+</fieldset>
+</form></body></html>

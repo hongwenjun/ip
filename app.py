@@ -1,4 +1,4 @@
-import ipdb, ipaddress, requests, json
+import ipdb, ipaddress, requests, re, json
 from flask import Flask, request, render_template, jsonify
 from socket import gethostbyname
 
@@ -112,11 +112,28 @@ def show_ip(ipaddr=None):
 
     return ipaddr
 
+def select_ips(ips_text):
+    ret =''
+    iplist = re.findall(r"\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b", ips_text)
+    for ip in iplist:
+        try:
+            one = iplocated(ip)
+            ret+=one
+        except:
+            pass
+    return ret
 
-
+@app.route("/ips/", methods=['POST', 'GET'])
+def getips():
+    if request.method == 'POST':
+        ips_text = request.form['ips']
+        ips = select_ips(ips_text)
+        return render_template('ips.html', ips=ips)
+    else:
+        return render_template('ips.html')
 
 if __name__ == '__main__':
-        app.run(host='0.0.0.0', debug=True)
+        app.run(host='0.0.0.0', debug=True, port=80)
 
 # export FLASK_ENV=development   # 调试模式: 修改代码不用重启服务
 # flask run --host=0.0.0.0       # 监听所有公开的 IP
