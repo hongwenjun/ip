@@ -16,6 +16,8 @@ a:focus, a:hover, .btn-link:focus, .btn-link:hover { text-decoration: underline;
  .label-site { font-size: 14px;  vertical-align: middle; margin-right: 6px; }
  .text { width: 100%; height: 150px; }
  .btn-code { padding: 6px 16px; }
+ .div-a{ float:left;width:45%;} 
+ .div-b{ float:right;width:50%;} 
 </style></head>
 <body style="text-align:center;">
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -50,7 +52,7 @@ a:focus, a:hover, .btn-link:focus, .btn-link:hover { text-decoration: underline;
         src="https://api.map.baidu.com/staticimage/v2?ak=tF8XaCqUG9ZjFR66lqqNXmLzeT24gtGF&mcode=666666&center=110,35&width=500&height=300&zoom=4 "/>
         </a>
   </div>
-  <div class="alert-warning">
+  <div class="alert-success">
     <h3>{{ ipaddr }}: <a href="https://262235.xyz/maps.php?city={{ city }}" class="label label-info label-site">查看地图 </a></h3> 
 </div>
 {% else %}
@@ -81,33 +83,38 @@ a:focus, a:hover, .btn-link:focus, .btn-link:hover { text-decoration: underline;
         const url = 'https://api.map.baidu.com/location/ip?ak=tF8XaCqUG9ZjFR66lqqNXmLzeT24gtGF&ip=';
         window.location.href = url + ip + '&coor=bd09ll'
     }
-
 </script>
-<br>
+
 <form action="/ips/" method="post">
+<div class="alert-warning">
 <h3> 批量ip查询地址: <input type="submit" value="点击查询"  class="btn btn-primary btn-sm" ></h3>
+</div>
 <textarea type="text" name ="ips" cols=120 rows=8 class="form-control text"
 placeholder="输入多行包含ip地址的日志,例:
 http://192.168.1.189:5000/ips/
 172.67.158.52  cloudflare.com"></textarea>
 </form><br>
 
+<div class="div-a">
 <div class="panel panel-info">
     <div class="panel-heading">
-      <h3 class="panel-title">命令行 curl 使用:</h3>
+      <h3 class="panel-title">命令行 curl 调用API:</h3>
     </div>
-<strong>curl https://262235.xyz/ip/</strong>             # 命令行 URL 要带 / <br>
-<strong>curl https://262235.xyz/ip/8.8.8.8</strong>     # 查询自定义 IP 定位<br>
-<strong>curl https://262235.xyz/ip/github.com</strong>    # 按域名查 IP 定位
-</div>
+<strong>curl https://262235.xyz/ip/</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 命令行 URL 要带 / <br>
+<strong>curl https://262235.xyz/ip/8.8.8.8</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 查询自定义 IP 定位<br>
+<strong>curl https://262235.xyz/ip/github.com</strong>&nbsp;&nbsp;# 按域名查 IP 定位
+</div></div>
+
+<div class="div-b">
 <div class="panel panel-success">
     <div class="panel-heading">
-      <h3 class="panel-title">本WebAPI支持IP城市定位和域名查IP定位，同时支持命令行查询</h3>
+      <h3 class="panel-title">本WebAPI支持IP城市定位和域名查IP定位</h3>
     </div>
-github源码：<a href="https://github.com/hongwenjun/ip">https://github.com/hongwenjun/ip</a><p>
-docker镜像：<a href="https://hub.docker.com/r/hongwenjun/ip">https://hub.docker.com/r/hongwenjun/ip</a><br>
-搭建WebAPI参考文章：<a href="https://262235.xyz/index.php/archives/342/">Python网络开发简单的IP城市定位WebAPI</a>
-</div>
+    <span class="label label-success">github源码:</span>&nbsp;&nbsp;<a href="https://github.com/hongwenjun/ip">https://github.com/hongwenjun/ip</a><p>
+    <span class="label label-success">docker镜像:</span>&nbsp;&nbsp;<a href="https://hub.docker.com/r/hongwenjun/ip">https://hub.docker.com/r/hongwenjun/ip</a><br>
+    <span class="label label-success">搭建WebAPI:</span>&nbsp;&nbsp;<a href="https://262235.xyz/index.php/archives/342/">Python网络开发简单的IP城市定位WebAPI</a>
+</div></div>
 
-</div></body></html>
+</div>
+</body></html>
 
