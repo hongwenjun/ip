@@ -1,15 +1,15 @@
-## ip:  Python WebAPI
+## ip: Python Flask WebAPI && Bootstrap Theme
 
 ### 演示网址  https://262235.xyz/ip/
 
 ### 本WebAPI支持IP城市定位和域名查IP定位，同时支持命令行查询
 
-![](https://262235.xyz/usr/uploads/2021/08/650223153.webp)
+![](https://262235.xyz/usr/uploads/2021/10/4246023144.png)
 
 ## 安装部署简易命令
 ```
 git clone https://github.com/hongwenjun/ip.git
-pip3  install Flask  ipip-ipdb
+pip3  install Flask  ipip-ipdb  html2text
 cd ip
 wget https://cdn.jsdelivr.net/npm/qqwry.ipdb/qqwry.ipdb
 flask run --host=0.0.0.0
@@ -21,9 +21,17 @@ flask run --host=0.0.0.0
 docker run -d -p 80:5000 --restart=always --name ip hongwenjun/ip
 ```
 
-### 搭建WebAPI参考文章
-[Python网络开发简单的IP城市定位WebAPI](https://262235.xyz/index.php/archives/342/)
-
+  * [github源码](https://github.com/hongwenjun/ip)
+  * [docker镜像](https://hub.docker.com/r/hongwenjun/ip)
+  * [搭建WebAPI参考文章](https://262235.xyz/index.php/search/webapi/)
+  * 在线工具箱
+    * [Bootstrap theme](https://262235.xyz/bs/)
+    * [编程中文文档](https://www.262235.xyz/index.php/246.html)
+    * [Linux 命令列表](https://262235.xyz/linux-command/)
+    * [IP定位和地图](https://262235.xyz/ip/)
+    * [批量IP查询](https://262235.xyz/ips/)
+    * [批量网址转Markdown](https://262235.xyz/getmd/)
+    * [Markdown编辑器](https://tool.lu/markdown/)
 
 [Pytyhon 使用百度地图API 进行 IP普通定位和地图显示](https://www.262235.xyz/index.php/archives/375/)
 
