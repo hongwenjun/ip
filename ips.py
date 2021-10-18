@@ -2,24 +2,14 @@ import ipdb, ipaddress, requests, re, json
 from flask import Flask, request
 from socket import gethostbyname
 
-# load dynamic C library for map shift
 from ctypes import *
-# shift = cdll.LoadLibrary('./china_shift.so')
+# GPS火星坐标互转
+# from china_shift import *
 
 class Location(Structure):
     _fields_ = [
         ('lon', c_double),
         ('lat', c_double)]
-
-# shift.transformFromWGSToGCJ.argtypes = [Location]
-# shift.transformFromWGSToGCJ.restype = Location
-# shift.transformFromGCJToWGS.argtypes = [Location]
-# shift.transformFromGCJToWGS.restype = Location
-
-# shift.bd_encrypt.argtypes = [Location]
-# shift.bd_encrypt.restype = Location
-# shift.bd_decrypt.argtypes = [Location]
-# shift.bd_decrypt.restype = Location
 
 db = ipdb.BaseStation("qqwry.ipdb")
 

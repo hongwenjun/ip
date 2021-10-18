@@ -7,13 +7,10 @@ RUN  apt update -y \
   && rm -rf /var/lib/apt/lists/*
 
 RUN  mkdir /app/templates -p  && cd /app \
-  && wget https://cdn.jsdelivr.net/npm/qqwry.ipdb/qqwry.ipdb   \
-  && wget https://raw.githubusercontent.com/hongwenjun/ip/main/app.py  \
-  && wget https://raw.githubusercontent.com/hongwenjun/ip/main/templates/hello.html \
-  && mv hello.html  templates/hello.html  \
-  && pip3 install Flask  ipip-ipdb  \
+  && pip3 install Flask  ipip-ipdb  html2text \
   && rm -rf /usr/share/python-wheels/*
 
+ADD  ./app  /app
 WORKDIR /app
 EXPOSE 5000/tcp
 

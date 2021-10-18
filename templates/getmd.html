@@ -1,45 +1,43 @@
-<!DOCTYPE html><html><head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>262235.xyz/ips | 批量ip查询地址</title>
+<!doctype html><html lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords" content="批量网址转Markdown,开源WebAIP,开源IP定位,IP地址查询,极速批量IP地址查询,IP地址精确查询,IP精准定位,高精度IP定位,国外IP定位">
 <link rel="icon" href="/logo/favicon.png" type="image/png">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" >
+<title>262235.xyz/getmd | 批量网址转Markdown</title>
 <style type="text/css">
-body { padding-top: 40px; padding-bottom: 40px; background-color: #f5f5f5;
-font-family: "PingFang SC", "Helvetica Neue", "Helvetica", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif; }
-a, input, button { outline: none !important; }
-a:focus, a:hover, .btn-link:focus, .btn-link:hover { text-decoration: underline; text-underline-position: under; }
-.main { max-width: 950px; padding: 19px 29px 29px; margin: 0 auto 20px; background-color: #fff;
-border: 1px solid #e5e5e5; -webkit-border-radius: 5px; -moz-border-radius: 5px;
-border-radius: 5px; -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
--moz-box-shadow: 0 1px 2px rgba(0,0,0,.05); box-shadow: 0 1px 2px rgba(0,0,0,.05); }
-.label-site { font-size: 14px;  vertical-align: middle; margin-right: 6px; }
-.text { width: 100%; height: 150px; }
-.btn-code { padding: 6px 16px; }
-</style>
+  body { background-color: #f5f5f5;
+  font-family: "PingFang SC", "Helvetica Neue", "Helvetica", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif; }
+  .main { max-width: 950px; padding: 19px 29px 29px; margin: 0 auto 20px; background-color: #fff;
+  border: 1px solid #e5e5e5; -webkit-border-radius: 5px; -moz-border-radius: 5px;
+  border-radius: 5px; -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05); box-shadow: 0 1px 2px rgba(0,0,0,.05); }
+  .f14 {font-size: 0.875em; /* 14px/16=0.875em */}
+  </style>
 </head>
 <body>
 {% include 'navbar.html' %}
 <div class="main">
 {% if urls %}
-<legend><h3><span class="label label-success label-site">262235.xyz/getmd </span> 批量网址转Markdown: <a class="label label-info label-site" href="/getmd/">返回输入网址</a></h3></legend>
-<textarea type="text" name ="urls" cols=120 rows=5 class="form-control text">{{ urls }}</textarea>
+<legend><h3><button type="button" class="btn btn-outline-success btn-sm">262235.xyz/getmd</button>  批量网址转Markdown: <a class="btn btn-warning btn-sm" href="/getmd/">返回输入网址</a></h3></legend>
+  <textarea type="text" name ="urls" cols=120 rows=5 class="form-control f14">{{ urls }}</textarea>
+
 {% else %}
 <form action="/getmd/" method="post">
-<legend><h3><span class="label label-success label-site">262235.xyz/getmd </span> 批量网址转Markdown: <a class="label label-warning label-site" href="/">返回主页</a></h3></legend>
-<textarea type="text" name ="urls" cols=120 rows=20 class="form-control text" placeholder="示例输入: # Pthon 爬虫WebAPI版: 批量网址转Markdown
+<legend><h3><button type="button" class="btn btn-outline-success btn-sm">262235.xyz/getmd</button>  批量网址转Markdown: <a class="btn btn-info btn-sm" href="/">返回主页</a></h3></legend>
+<textarea type="text" name ="urls" cols=120 rows=15 class="form-control f14" placeholder="示例输入: # Pthon 爬虫WebAPI版: 批量网址转Markdown
 https://262235.xyz/index.php/archives/584/"></textarea>
-<br>
-<h2 class="alert-success"><small>输入PASSKEY每次抓取5篇文章, PASSKEY:&nbsp;&nbsp;</small>{{ passkey }}</h2>
-<label for="inputPassword" class="sr-only">Password</label>
+
+<h3 ><button type="button" class="btn btn-outline-danger btn-sm">输入PASSKEY每次抓取5篇文章, PASSKEY:</button>&nbsp;&nbsp;{{ passkey }}</h3>
 <input type="text" id="inputPassword"  name='passkey' class="form-control" placeholder="PASSKEY" required>
 <br>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">确认抓取Markdown</button>
+<button class="btn btn-primary" type="submit">确认抓取Markdown</button>
 </form>
 {%  endif  %}
 {% if texts %}
 <div class="alert-success"><h3 style="text-align:center;">getmd 抓取Markdown文本 </h3></div>
-<textarea type="text" name ="texts" cols=120 rows=30 class="form-control text">{{ texts }}</textarea>
+<textarea type="text" name ="texts" cols=120 rows=30 class="form-control f14">{{ texts }}</textarea>
 {%  endif  %}
-</div></body></html>
-
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" ></script>
+</body></html>

@@ -30,7 +30,8 @@ map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
 map.addControl(new BMap.NavigationControl());    
 map.addControl(new BMap.ScaleControl());    
 map.addControl(new BMap.OverviewMapControl());    
-map.addControl(new BMap.MapTypeControl());    
+map.addControl(new BMap.MapTypeControl());
+map.addOverlay(new BMap.Marker(point));
 </script>
 {{ bdgps[3] }}
 </body>  

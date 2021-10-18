@@ -1,39 +1,42 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
-  <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="https://262235.xyz/ip/">Python Flask WebAPI</a>
-  </div>
-  <div id="navbar" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-      <li class="active"><a href="/">首页</a></li>
-      <li><a href="https://github.com/hongwenjun/ip">github源码</a></li>
-      <li><a href="https://hub.docker.com/r/hongwenjun/ip">docker镜像</a></li>
-      <li><a href="https://262235.xyz/index.php/search/webapi/">搭建WebAPI参考文章</a></li>
-      
-      <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">在线工具箱<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-              <li><a href="https://262235.xyz/bs/">Bootstrap theme</a></li>
-              <li><a href="https://www.262235.xyz/index.php/246.html">编程中文文档</a></li>
-              <li><a href="https://262235.xyz/linux-command/">Linux 命令列表</a></li>
-              <li><a href="https://262235.xyz/ip/">IP定位和地图</a></li>
-              <li><a href="https://262235.xyz/ips/">批量IP查询</a></li>
-              <li><a href="https://262235.xyz/getmd/">批量网址转Markdown</a></li>
-              <li><a href="https://tool.lu/markdown/">Markdown编辑器</a></li>
-              
-             
-              </ul>
-          </li>
-      </ul>
-  </div><!--/.nav-collapse -->
-  </div>
-</nav>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<div class="container ">
+<!-- Brand/logo -->
+<a class="navbar-brand" href="https://262235.xyz/ip/">Python Flask WebAPI</a>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>  
+<!-- 导航栏 在手机显示折叠按钮 -->
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+    
+<!-- Links -->
+<ul class="navbar-nav me-auto">
+    <li class="nav-item"><a class="nav-link text-truncate" href="https://github.com/hongwenjun/ip">github源码</a></li>
+    <li class="nav-item"><a class="nav-link text-truncate" href="https://hub.docker.com/r/hongwenjun/ip">docker镜像</a></li>
+    <li class="nav-item "><a class="nav-link text-truncate" href="https://262235.xyz/index.php/search/webapi/">搭建WebAPI参考文章</a></li>
+
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-bs-toggle="dropdown">
+        在线工具箱
+    </a>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="https://262235.xyz/bs/">Bootstrap theme</a>
+        <a class="dropdown-item" href="https://www.runoob.com/bootstrap5/bootstrap5-tutorial.html">Bootstrap5 教程</a>
+        <a class="dropdown-item" href="https://www.262235.xyz/index.php/246.html">编程中文文档</a>
+        <a class="dropdown-item" href="https://262235.xyz/linux-command/">Linux 命令列表</a>
+        <a class="dropdown-item" href="/ip/">IP定位和地图</a>
+        <a class="dropdown-item" href="/ips/">批量IP查询</a>
+        <a class="dropdown-item" href="/getmd/">批量网址转Markdown</a>
+        <a class="dropdown-item" href="https://tool.lu/markdown/">Markdown编辑器</a>
+    </div>
+    </li>
+</ul>
+
+<!-- 导航栏的表单 -->
+<form method="post" class="d-flex" action="https://262235.xyz/">
+    <input class="form-control me-2" name="s" type="text" placeholder="Search">
+    <button class="btn btn-primary"  type="submit">Search</button>      
+</form>
+</div></div>
+</nav>

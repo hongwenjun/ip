@@ -12,8 +12,7 @@ def hello():
     ip = getip()
     ipaddr = iplocated(ip)
     if is_Mozilla():
-        return  render_template('hello.html',  ip=ip, ipaddr=ipaddr, city=getcity(ip)) + \
-            "<div class=\"label label-default\"  style=\"text-align:center;\">"  + request.headers["User-Agent"]  + "</div>"  
+        return  render_template('hello.html',  ip=ip, ipaddr=ipaddr, city=getcity(ip))
     else:
         return ip
 
@@ -91,7 +90,7 @@ def getmd():
     return render_template('getmd.html', passkey=make_passkey('262235.xyz'))
 
 if __name__ == '__main__':
-    #  app.run(host='0.0.0.0') 
+    # app.run(host='0.0.0.0') 
     app.run(host='0.0.0.0', debug=True, port=80) 
 
 # export FLASK_ENV=development   # 调试模式: 修改代码不用重启服务
