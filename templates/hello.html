@@ -1,13 +1,13 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hello,亲: 本WebAPI支持IP城市定位和域名查IP定位</title>
 <meta name="keywords" content="开源WebAIP,开源IP定位,IP地址查询,极速批量IP地址查询,IP地址精确查询,IP精准定位,高精度IP定位,国外IP定位">
 <link rel="icon" href="/logo/favicon.png" type="image/png">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" >
-<title>Hello,亲: 本WebAPI支持IP城市定位和域名查IP定位</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <style type="text/css">
 body { background-color: #f5f5f5;
-font-family: "PingFang SC", "Helvetica Neue", "Helvetica", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif; }
+font-family: "PingFang SC", "Helvetica Neue", "Helvetica", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;}
 .main { max-width: 950px; padding: 19px 29px 29px; margin: 0 auto 20px; background-color: #fff;
 border: 1px solid #e5e5e5; -webkit-border-radius: 5px; -moz-border-radius: 5px;
 border-radius: 5px; -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
@@ -22,13 +22,12 @@ a {color: #666; text-decoration: none} a:hover {color: #45B6F7;text-decoration: 
 
 <div class="main center-block">
 {% if ip %}
-<button type="button" class="btn btn-outline-danger">Hello, 来自 {{ city }} 的亲:</button>
-<br>
-<a href="https://262235.xyz/ip/maps/"> <img style="margin:0px" 
-src="https://api.map.baidu.com/staticimage/v2?ak=tF8XaCqUG9ZjFR66lqqNXmLzeT24gtGF&mcode=666666&center=110,35&width=500&height=300&zoom=4 "/>
+<a href="https://262235.xyz/ip/maps/"> <img class="img-fluid" style="margin:0px" 
+src="https://api.map.baidu.com/staticimage/v2?ak=tF8XaCqUG9ZjFR66lqqNXmLzeT24gtGF&mcode=666666&center=110,35&width=890&height=400&zoom=4 "/>
 </a><br>
+<div class=""><button type="button" class="btn btn-outline-danger">Hello, 来自 {{ city }} 的亲:</button></div>
 <h3 class="card-title"><button type="button" class="btn btn-outline-info btn-sm">当前IP地址: </button>
-    {{ ipaddr }} <a href="https://262235.xyz/maps.php?city={{ city }}" class="btn btn-primary btn-sm">查看地图</a> </h3>
+{{ ipaddr }} <a href="https://262235.xyz/maps.php?city={{ city }}" class="btn btn-primary btn-sm">查看地图</a> </h3>
 
 {% else %}
     <h1>Hello World!</h1>
@@ -41,23 +40,23 @@ src="https://api.map.baidu.com/staticimage/v2?ak=tF8XaCqUG9ZjFR66lqqNXmLzeT24gtG
 
 <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script>
-    $("#btn").click(function () {
-        jump_url()
-    })
-    function jump_url(params) {
-        var name = $("#name").val();
-        const url = window.location.href;
-        window.location.href = '/ip/' + name
-    }
+  $("#btn").click(function () {
+      jump_url()
+  })
+  function jump_url(params) {
+      var name = $("#name").val();
+      const url = window.location.href;
+      window.location.href = '/ip/' + name
+  }
 
-    $("#json").click(function () {
-        getjson()
-    })
-    function getjson(params) {
-        var ip = $("#name").val();
-        const url = 'https://api.map.baidu.com/location/ip?ak=tF8XaCqUG9ZjFR66lqqNXmLzeT24gtGF&ip=';
-        window.location.href = url + ip + '&coor=bd09ll'
-    }
+  $("#json").click(function () {
+      getjson()
+  })
+  function getjson(params) {
+      var ip = $("#name").val();
+      const url = 'https://api.map.baidu.com/location/ip?ak=tF8XaCqUG9ZjFR66lqqNXmLzeT24gtGF&ip=';
+      window.location.href = url + ip + '&coor=bd09ll'
+  }
 </script>
 <br>
 <form action="/ips/" method="post">
@@ -71,30 +70,28 @@ http://192.168.1.189:5000/ips/
 </form><br>
 
 <div class="row">
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-header text-white bg-secondary">命令行 curl 调用API:</div>
-        <div class="card-body f14">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-header-sm text-white bg-secondary">命令行 curl 调用API:</div>
+      <div class="card-body-sm f14">
         <strong>curl -sL 262235.xyz/ip</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 命令行 -L 参数能重定向 <br>
         <strong>curl -sL 262235.xyz/ip/8.8.8.8</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 查询自定义 IP 定位<br>
         <strong>curl -sL 262235.xyz/ip/github.com</strong>&nbsp;&nbsp;# 按域名查 IP 定位    
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-header text-white bg-secondary">本WebAPI支持IP城市定位和域名查IP定位</div>
-        <div class="card-body f14">
-          <span class="badge rounded-pill bg-primary">github源码:</span>&nbsp;&nbsp;<a href="https://github.com/hongwenjun/ip">https://github.com/hongwenjun/ip</a><p>
-            <span class="badge rounded-pill bg-danger">docker镜像:</span>&nbsp;&nbsp;<a href="https://hub.docker.com/r/hongwenjun/ip">https://hub.docker.com/r/hongwenjun/ip</a><br>
-            <span class="badge rounded-pill bg-info text-dark">搭建WebAPI:</span>&nbsp;&nbsp;<a href="https://262235.xyz/index.php/archives/342/">Python网络开发简单的IP城市定位WebAPI</a>
-        </div>
       </div>
     </div>
   </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-header-sm text-white bg-secondary">本WebAPI支持IP城市定位和域名查IP定位</div>
+      <div class="card-body-sm f14">
+        <span class="badge rounded-pill bg-primary">github源码:</span>&nbsp;&nbsp;<a href="https://github.com/hongwenjun/ip">https://github.com/hongwenjun/ip</a><br>
+        <span class="badge rounded-pill bg-danger">docker镜像:</span>&nbsp;&nbsp;<a href="https://hub.docker.com/r/hongwenjun/ip">https://hub.docker.com/r/hongwenjun/ip</a><br>
+        <span class="badge rounded-pill bg-info text-dark">搭建WebAPI:</span>&nbsp;&nbsp;<a href="https://262235.xyz/index.php/archives/342/">Python网络开发简单的IP城市定位WebAPI</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" ></script>
 </body></html>
-
-
