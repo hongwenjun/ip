@@ -19,6 +19,11 @@ flask run --host=0.0.0.0
 - 如果要挂载 `/app` 目录，宿主机先准备好文件
 ```
 docker run -d -p 80:5000 --restart=always --name ip hongwenjun/ip
+
+# 使用另一个 python3 镜像挂载
+docker run -d -p 80:80  -v /root/ip:/app \
+  --restart=always --name python3   \
+  hongwenjun/python3   python3 -m   app
 ```
 
   * [github源码](https://github.com/hongwenjun/ip)
