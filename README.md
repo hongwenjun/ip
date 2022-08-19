@@ -42,12 +42,13 @@ docker run -d -p 80:80  -v /root/ip:/app \
 
 演示网址: https://www.262235.xyz/ip/maps/
 
-### GPS定位百度的太拉，推荐购买: 免费试用500次, 1元能使用1万次 IP定位 API 接口   
-- https://market.aliyun.com/products/57002002/cmapi00035184.html
+### GPS定位百度的太拉，推荐购买:  
+- 免费试用500次, 1元能使用1万次 IP定位 API 接口   https://market.aliyun.com/products/57002002/cmapi00035184.html
+- 高德 IP定位  0元／100000次    https://market.aliyun.com/products/57002002/cmapi018957.html
 - `app.py` 中请更换你自己的 API
 ```
 def ip2gdgps(ip):
-    url = 'http://ips.market.alicloudapi.com/iplocaltion?ip=' + ip
+    url = 'http://iploc.market.alicloudapi.com/v3/ip=' + ip
     headers = {"Authorization":"APPCODE  <<<IP定位APPCODE>>>" ,"Content-Type":"application/json; charset=utf-8" }
     try:
         r = requests.get(url=url , headers=headers)
