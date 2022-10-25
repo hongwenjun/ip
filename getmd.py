@@ -7,6 +7,8 @@ headers = {'User-Agent': ' '.join(['Mozilla/5.0 (Windows NT 10.0; Win64; x64; Se
 def url_to_markdown(url):
     # 发送请求
     r = requests.get(url=url, headers=headers)
+    # Python requests乱码的五种解决办法  https://blog.csdn.net/lilongsy/article/details/122140098
+    r.encoding = r.apparent_encoding
     # html 转换 markdown
     html = r.text
     text = html2text.html2text(html)
