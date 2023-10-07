@@ -1,6 +1,10 @@
 ## ip: Python Flask WebAPI && Bootstrap Theme
 
-### 演示网址  https://262235.xyz/ip/
+##【Docker 学习 WebAPI 之 IP 城市定位 容器傻瓜部署】 [B站视频](https://www.bilibili.com/video/BV1NC4y157Zb)
+### https://www.bilibili.com/video/BV1NC4y157Zb
+
+### 演示网址1  https://262235.xyz/ip/
+### 演示网址2  https://lyvba.com/ip/
 
 ### 本WebAPI支持IP城市定位和域名查IP定位，同时支持命令行查询
 
